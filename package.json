@@ -1,0 +1,51 @@
+{
+  "name": "level",
+  "version": "1.0.0",
+  "description": "A simple website with easy content editing",
+  "main": "./src/js/back.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot",
+    "run": "webpack --watch"
+  },
+  "author": "Albert Nisbet",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "node-loader": "^0.6.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.2.1",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.8",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
+    "redux-logger": "^3.0.6",
+    "redux-observable": "^0.14.1",
+    "redux-thunk": "^2.2.0",
+    "rxjs": "^5.4.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
+}
