@@ -5,7 +5,8 @@ import { renderToString } from 'react-dom/server'
 
 import appReducer from '../../js/reducers/index.js'
 import App from '../../js/components/App.jsx'
-import initialState from '../store.js'
+import Field from '../models/field'
+//import initialState from '../store.js'
 
 const renderFullPage = (html, preloadedState) => {
     return `<!DOCTYPE html>
@@ -26,7 +27,7 @@ const renderFullPage = (html, preloadedState) => {
 </html>`
 }
 
-const handleRender = (req, res) => {
+export const miniFront = (initialState,res) => {
     const store = createStore(appReducer, initialState)
 
     const html = renderToString(
@@ -40,4 +41,31 @@ const handleRender = (req, res) => {
     res.send(renderFullPage(html, preloadedState))
 }
 
-export default handleRender
+export const handleRender = (req, res) => {
+    Field.find({}, 'id_str content', function(err, fields) {
+        if (err) {console.log(err)}
+        miniFront(makeInitialState(req, fields),res)
+    })
+}
+
+const makeInitialState = (req, all_fields) => {
+    var auth_loggedIn = req.isAuthenticated()
+    console.log(auth_loggedIn)
+    var auth_username = req.isAuthenticated() ? req.user.local.username : null
+    console.log('ALL FIELDS:',all_fields)
+    return {
+        push: {
+            pushing: false,
+            success: true,
+            editing: null
+        },
+        auth:
+        {
+            loggedIn: auth_loggedIn,
+            isLoggingIn: false,
+            username: auth_username,
+            message: null
+        },
+        fields: all_fields
+    }
+}

@@ -19,7 +19,7 @@ export const receiveContentPush = (response) => {
     var success = response.success
     return {
         type: success ? CONTENT_PUSH__SUCCESS : CONTENT_PUSH__FAILURE,
-        message: response.message
+        success: response.success
     }
 }
 

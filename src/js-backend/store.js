@@ -1,15 +1,22 @@
 import mongoose from 'mongoose'
+import Field from './models/field'
 
-const initialState =
-    {
+const initialState = (req) => {
+    var auth_loggedIn = req.isAuthenticated()
+    console.log(auth_loggedIn)
+    var auth_username = req.isAuthenticated() ? req.user.local.username : null
+    var all_fields = Field.find({}).select({id_str:1,content:1}).exec()
+    console.log('ALL FIELDS:',all_fields)
+    return {
         push: {
-            pushing: false
+            pushing: false,
+            success: true
         },
         auth:
             {
-                loggedIn: false,
+                loggedIn: auth_loggedIn,
                 isLoggingIn: false,
-                username: null,
+                username: auth_username,
                 message: null
             },
         fields: [
@@ -23,5 +30,6 @@ const initialState =
             }
         ]
     }
+}
 
 export default initialState

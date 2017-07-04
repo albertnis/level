@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 
 // File imports
 var configdb = require('./config/database')
-import handleRender from './views'
+import { handleRender } from './views'
 import dbConnect from './db'
 import contentpush from './routines/contentpush'
 
@@ -46,6 +46,11 @@ app.post('/login', function(req, res, next) {
             return res.send(info)
         });
     })(req, res, next)
+})
+
+app.get('/logout', function(req, res, next) {
+    req.logOut()
+    return res.send(JSON.stringify({'success':true}))
 })
 
 app.get('/contentpush', contentpush)

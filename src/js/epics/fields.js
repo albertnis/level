@@ -1,6 +1,6 @@
 import 'rxjs'
 import { ajax } from 'rxjs/observable/dom/ajax'
-import { EDIT_CONTENT, EDIT_CONTENT__AJAX } from '../constants/actions'
+import { EDIT_CONTENT } from '../constants/actions'
 import { receiveContentPush } from '../actions'
 
 const proAction = (action$) => {
