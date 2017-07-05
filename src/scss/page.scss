@@ -1,0 +1,23 @@
+body, html {
+    width: 100%;
+    font-family: $font-family-page;
+}
+
+div[contenteditable]:focus {
+    outline: none;
+}
+
+a,
+a:link,
+a:visited {
+    color: inherit;
+    transition: opacity .3s ease-out;
+}
+
+a:visited {
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 0.7;
+}

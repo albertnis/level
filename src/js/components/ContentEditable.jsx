@@ -9,18 +9,30 @@ class ContentEditable extends React.Component {
     }
 
     render() {
-        console.log('Rendering ContentEditable', this.props)
         return (
             <div id="contenteditable"
+                   className={this.props.className}
+                   ref={(ce) => {this.ceEl = ce }}
                    onInput={this.emitChange}
-                   onBlur={this.emitChange}
+                   onBlur={this.props.onBlur}
+                   onFocus={this.props.onFocus}
                    contentEditable={this.props.contentEditable}
+                   spellCheck={this.props.spellCheck}
                    dangerouslySetInnerHTML={{__html: this.props.html}}></div>
             )
     }
 
     shouldComponentUpdate(nextProps) {
-        return nextProps.html !== ReactDOM.findDOMNode(this).innerHTML
+        var contentChanged = nextProps.html !== ReactDOM.findDOMNode(this).innerHTML
+
+        var permissionsChanged = false;
+        if (typeof nextProps.contentEditable !== undefined) {
+            permissionsChanged = this.ceEl.getAttribute('contenteditable') != nextProps.contentEditable.toString()
+        }
+
+        var spellcheckChanged = this.ceEl.getAttribute('spellcheck') != nextProps.spellCheck.toString()
+
+        return contentChanged || permissionsChanged || spellcheckChanged
     }
 
     componentDidUpdate() {
@@ -32,7 +44,6 @@ class ContentEditable extends React.Component {
     emitChange() {
         // Pass new value to parent for dispatch
         var html = ReactDOM.findDOMNode(this).innerHTML;
-        console.log('---!ContentEditable emitted change', this.props)
         if (this.props.onChange && html !== this.lastHtml) {
             this.props.onChange({
                 target: {

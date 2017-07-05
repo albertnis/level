@@ -1,0 +1,45 @@
+.interact-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+
+    @include media-query($mobile) {
+        flex-wrap: wrap;
+
+    }
+}
+
+.work-wrapper,
+.thought-wrapper {
+    flex-grow: 1;
+    max-width: 400px;
+
+    @include media-query($mobile) {
+        max-width: calc(100%-2*#{$pad-med});
+    }
+}
+
+.work-header,
+.thought-header {
+    font-family: $font-family-big;
+    font-weight: $font-weight-ratherbig;
+    font-size: $font-size-ratherbig;
+    margin: $pad-med;
+}
+
+.work-content,
+.thought-content {
+    margin: 0 $pad-med $pad-med $pad-med;
+}
+
+.work-content {
+    line-height: $line-height-big;
+    font-size: $font-size-med;
+}
+
+.thought-content {
+    line-height: $line-height-med;
+    font-size: $font-size-quitebig;
+}

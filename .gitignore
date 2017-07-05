@@ -5,3 +5,5 @@
 /node_modules/
 /public/front-output.js
 /back-output.js
+/public/main-output.css
+/public/main-output.css.map

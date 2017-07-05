@@ -1,0 +1,42 @@
+.heroRow,
+.aboutRow,
+.interactRow {
+    width: 100%;
+}
+
+.heroRow {
+    position: relative;
+    background-color: $pink;
+    color: $white;
+    text-align: center;
+    padding: $pad-huge 0;
+}
+
+.aboutRow {
+    background-color: $grey;
+    color: $black;
+    text-align: center;
+    padding: $pad-quitebig 0;
+}
+
+.interactRow {
+    background-color: $blue;
+    color: $white;
+    text-align: left;
+    padding: $pad-quitebig 0;
+}
+
+.contactRow {
+    background-color: $green;
+    color: $white;
+    text-align: center;
+    padding: $pad-quitebig 0;
+}
+
+.footerRow {
+    background-color: $darkgrey;
+    color: $white;
+    text-align: center;
+    padding: $pad-med 0;
+    overflow-y: hidden;
+}

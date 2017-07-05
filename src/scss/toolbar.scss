@@ -1,0 +1,169 @@
+.toolbar-outer {
+    transition: height .3s ease-out;
+    height: 0;
+}
+
+.toolbar-outer_auth {
+    height: $pad-quitebig;
+
+    @include media-query($mobile) {
+        min-height: 3*1.7rem;
+    }
+}
+
+.toolbar {
+    background-color: $darkgrey;
+    color: $white;
+    position: fixed;
+    width: calc(100% - #{$pad-med});
+    top: 0;
+    left: 0;
+    display: flex;
+    transition: height .3s ease-out;
+    z-index: 44;
+
+    @include media-query($mobile) {
+        flex-wrap: wrap;
+    }
+}
+
+.toolbar_auth {
+    padding: 0 $pad-med/2;
+
+    @include media-query($mobile) {
+        opacity: 1;
+        padding: $pad-med/2;
+    }
+}
+
+.toolbar-userArea,
+.toolbar-editArea,
+.toolbar-statusArea {
+    height: $pad-quitebig;
+    line-height: $pad-quitebig;
+    padding: 0 $pad-med/2;
+}
+
+.toolbar-userArea {
+    width: 30%;
+    text-align: right;
+}
+
+.toolbar-logout {
+    text-decoration: underline;
+    display: inline;
+    cursor: pointer;
+    margin-left: $pad-small;
+}
+
+.toolbar-editArea {
+    width: 30%;
+    text-align: left;
+    opacity: 0.7;
+    transition: opacity .3s ease-out;
+}
+
+.toolbar-editArea_editing {
+    opacity: 1;
+}
+
+.toolbar-statusArea {
+    width: 40%;
+    text-align: center;
+
+}
+
+.toolbar-spellCheck {
+    display: inline-block;
+    margin-left: $pad-med;
+}
+
+.toolbar-spellCheck-label {
+    padding-right: 25px;
+    cursor: pointer;
+}
+
+.toggleSlider {
+    display: inline-block;
+    height: 10px;
+    width: 20px;
+    left: -20px;
+    border: 1px solid $white;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: background-color .3s ease-in-out,
+        opacity .3s ease-in-out;
+}
+
+.toggleSlider::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    top: 0;
+    left: 0;
+    margin-top: 1px;
+    margin-left: 1px;
+    background-color: $white;
+    transition: margin-left .3s ease-in-out;
+}
+
+.toolbar-spellCheck-box {
+    @include appearance(none);
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.toolbar-spellCheck-box:checked ~ .toggleSlider {
+    background-color: $blue;
+    opacity: 1;
+}
+
+.toolbar-spellCheck-box:checked ~ .toggleSlider::after {
+    margin-left: 11px;
+}
+
+.toolbar-statusArea-text {
+    display: inline-block;
+    animation: flash .4s ease-out;
+    color: $orange;
+}
+
+.toolbar-syncStatus_good .toolbar-statusArea-text {
+    color: $lightgreen;
+    animation: flasha .4s ease-out;
+}
+
+.toolbar-syncStatus_warn .toolbar-statusArea-text {
+    color: $pink;
+    animation: flashb .4s ease-out;
+}
+
+@keyframes flash {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+@keyframes flasha {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+@keyframes flashb {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.toolbar-userArea,
+.toolbar-editArea,
+.toolbar-statusArea {
+    @include media-query($mobile) {
+        width: calc((100% - #{$pad-med}));
+        flex-shrink: 0;
+        text-align: left;
+        height: 1.7rem;
+        line-height: 1.7rem;
+    }
+}

@@ -1,0 +1,16 @@
+.contact-header {
+    font-family: $font-family-big;
+    font-weight: $font-weight-big;
+    font-size: $font-size-big;
+    margin: 0 $pad-med;
+}
+
+.contactRow a {
+    display: inline-block;
+    margin: $pad-med;
+    font-size: $font-size-med;
+}
+
+.contactRow a:not(:last-child) {
+    margin-right: $pad-med;
+}

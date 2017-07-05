@@ -6,7 +6,7 @@ import LoginForm from '../components/LoginForm.jsx'
 const mapStateToProps = (state) => {
     return {
         loggedIn: state.auth.loggedIn,
-        isLoggingIn: state.auth.username,
+        isLoggingIn: state.auth.isLoggingIn,
         message: state.auth.message
     }
 }
@@ -14,7 +14,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit: (username, password) => {
-            console.log('LoginFormContainer.jsx: Received submit:', username, password)
             dispatch(requestLogin(username, password))
         }
     }

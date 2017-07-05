@@ -1,4 +1,4 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const frontend = {
@@ -8,6 +8,8 @@ const frontend = {
         path: __dirname + '/public',
         filename: 'front-output.js'
     },
+
+    devtool: 'eval-source-map',
 
     devServer: {
         inline: true,
@@ -34,11 +36,11 @@ const frontend = {
 
     plugins: [
         new ExtractTextPlugin({
-            filename: './index.css',
+            filename: './public/index.css',
             allChunks: true
         })
     ]
-}
+};
 
 const backend = {
     entry: './src/js-backend/back.js',
@@ -77,6 +79,6 @@ const backend = {
     plugins: [
 
     ]
-}
+};
 
 module.exports = [frontend, backend];

@@ -7,9 +7,15 @@ const auth = (state = {}, action) => {
                 isLoggingIn: true
             })
         case LOGIN__SUCCESS:
+            return Object.assign({}, state, {
+                loggedIn: true,
+                isLoggingIn: false,
+                username: action.username,
+                message: action.message
+            })
         case LOGIN__FAILURE:
             return Object.assign({}, state, {
-                loggedIn: action.loggedIn,
+                loggedIn: false,
                 isLoggingIn: false,
                 username: action.username,
                 message: action.message

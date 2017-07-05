@@ -14,8 +14,10 @@ const renderFullPage = (html, preloadedState) => {
     <head>
         <meta charset="UTF-8">
         <title>Level</title>
-        <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Didact+Gothic|PT+Sans" rel="stylesheet">
-        <link href="index.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900|Didact+Gothic|PT+Sans" rel="stylesheet">
+        <link href="static/main-output.css" rel="stylesheet">
+        <link href="static/favicon.png" rel="icon">
     </head>
     <body>
         <div id="app">${html}</div>
@@ -57,14 +59,15 @@ const makeInitialState = (req, all_fields) => {
         push: {
             pushing: false,
             success: true,
-            editing: null
+            editing: null,
+            spellcheckEnabled: true
         },
         auth:
         {
             loggedIn: auth_loggedIn,
             isLoggingIn: false,
             username: auth_username,
-            message: null
+            message: 'Enter username and password to log in'
         },
         fields: all_fields
     }

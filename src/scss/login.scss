@@ -1,0 +1,118 @@
+.loginForm-wrapper {
+    margin: $pad-med;
+    position: relative;
+}
+
+.loginForm-link {
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .3s ease-out;
+}
+
+.loginForm-wrapper_open .loginForm-link {
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loginForm-tip {
+    height: 0;
+    opacity: 0;
+    transition: opacity .3s ease-out;
+    pointer-events: none;
+}
+
+.loginForm-wrapper_open .loginForm-tip {
+    opacity: 1;
+    pointer-events: auto;
+    margin-bottom: $pad-med;
+}
+
+.loginForm {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease-out;
+    padding: 0;
+    max-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-query($mobile) {
+        flex-wrap: wrap;
+    }
+}
+
+.loginForm-wrapper_open .loginForm {
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 800px;
+    padding: $pad-med/2;
+    overflow: hidden;
+}
+
+.loginForm input {
+    margin: $pad-med/2;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"],
+.loginForm-cancelButton,
+.loginForm-submitButton {
+    border: 2px solid $white;
+    background-color: transparent;
+    padding: $pad-small;
+    color: $white;
+    font-family: $font-family-page;
+    font-size: $font-size-med;
+    transition: border-color .3s ease-out;
+}
+
+.loginForm input[type="text"]:focus,
+.loginForm input[type="password"]:focus,
+.loginForm-cancelButton:focus,
+.loginForm-submitButton:focus {
+    outline: none;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+    width: 14rem;
+
+    @include media-query($mobile) {
+        width: calc(100% - 2*#{$pad-med});
+    }
+}
+
+.loginForm input[type="text"]:focus,
+.loginForm input[type="password"]:focus {
+    border-color: $lightgreen;
+}
+
+.loginForm-cancelButton,
+.loginForm-submitButton {
+    transition: background-color .3s ease-out,
+        color .3s ease-out;
+    width: 8rem;
+
+    @include media-query($mobile) {
+        width: calc(50% - #{$pad-med});
+    }
+}
+
+.loginForm-submitButton:hover {
+    background-color: $green;
+    color: $white;
+}
+
+.loginForm-cancelButton:hover {
+    background-color: $pink;
+    color: $white;
+}
+
+.loginForm-cancelButton:focus,
+.loginForm-submitButton:focus {
+    background-color: $white;
+    color: $darkgrey;
+}

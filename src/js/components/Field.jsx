@@ -5,29 +5,39 @@ import ContentEditable from '../components/ContentEditable.jsx'
 class Field extends React.Component {
     constructor(props) {
         super(props)
-        console.log("Field", props)
         this.state = {
             editable: true,
             content: props.field.content
         }
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleInputFocus = this.handleInputFocus.bind(this)
+        this.handleInputBlur = this.handleInputBlur.bind(this)
     }
 
     handleInputChange(e) {
-        console.log('Field.jsx: Received CE onChange:',e.target.value)
         this.setState({ content: e.target.value})
 
         // Pass new value to container for dispatch
         this.props.onContentChange(this.props.field.id_str, e.target.value)
     }
 
+    handleInputFocus(e) {
+        this.props.onInputFocus(this.props.field.id_str)
+    }
+
+    handleInputBlur(e) {
+        this.props.onInputBlur()
+    }
+
     render() {
-        console.log('Rendering Field', this.props.field, this.state)
         return (
             <ContentEditable className={this.props.field.id_str}
-                             contentEditable={this.state.editable}
+                             contentEditable={this.props.loggedIn}
+                             spellCheck={this.props.spellcheckEnabled}
                              html={this.state.content}
-                             onChange={this.handleInputChange}  />
+                             onChange={this.handleInputChange}
+                             onFocus={this.handleInputFocus}
+                             onBlur={this.handleInputBlur}  />
         )
     }
 }

@@ -50,7 +50,7 @@ app.post('/login', function(req, res, next) {
 
 app.get('/logout', function(req, res, next) {
     req.logOut()
-    return res.send(JSON.stringify({'success':true}))
+    res.redirect('/')
 })
 
 app.get('/contentpush', contentpush)

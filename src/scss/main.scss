@@ -1,0 +1,59 @@
+$pink: #BA2C73;
+$black: #101419;
+$white: #F5F0F3;
+$grey: #DDE4EC;
+$darkgrey: #1c2126;
+$green: #468C98;
+$lightgreen: #69f18d;
+$blue: #476C9B;
+$orange: #f3993c;
+
+$font-family-page: 'Didact Gothic', 'San Francisco', 'Roboto', sans-serif;
+$font-family-big: 'Raleway', 'San Francisco', 'Roboto', sans-serif;
+$font-family-tool: 'PT Sans', 'San Francisco', 'Roboto', sans-serif;
+
+$font-weight-big: 900;
+$font-weight-ratherbig: 800;
+
+$font-size-big: 3rem;
+$font-size-ratherbig: 2rem;
+$font-size-quitebig: 1.4rem;
+$font-size-med: 1.2rem;
+
+$line-height-big: 1.4em;
+$line-height-med: 1.1em;
+
+$pad-huge: 12rem;
+$pad-big: 6rem;
+$pad-quitebig: 3rem;
+$pad-med: 1rem;
+$pad-small: 5px;
+
+$mobile: 768px;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+@mixin appearance ($value) {
+    -webkit-appearance:     $value;
+    -moz-appearance:        $value;
+    -ms-appearance:         $value;
+    -o-appearance:          $value;
+    appearance:             $value;
+}
+
+@import
+    "reset.scss",
+    "page.scss",
+    "row.scss",
+    "logo.scss",
+    "hero.scss",
+    "about.scss",
+    "interact.scss",
+    "contact.scss",
+    "footer.scss",
+    "login.scss",
+    "toolbar.scss";

@@ -12,9 +12,6 @@ import App from './components/App.jsx'
 import appReducer from './reducers'
 import appEpicMiddleware from './epics'
 
-// Style import
-import '../scss/main.scss'
-
 // Grab state as injected by server
 const initialState = window.__PRELOADED_STATE__
 console.log('front.js: Initial state obtained as', initialState)
@@ -32,9 +29,9 @@ let store = createStore(
 console.log('front.js: Store initialised', store.getState())
 
 // Subscribe to store
-store.subscribe(() => {
+/*store.subscribe(() => {
     console.log('Store changed', store.getState())
-})
+})*/
 
 // Render app
 render(
