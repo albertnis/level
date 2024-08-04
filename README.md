@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This demo was my first React learning experience and helped me land a job way back in 2017. It has served its purpose and I'm not going to be updating it.
+
 ![](https://i.imgur.com/TpTyI9w.png)
 
 *Beautifully generic.*
